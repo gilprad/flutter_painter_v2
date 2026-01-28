@@ -104,7 +104,9 @@ class _FreeStyleWidgetState extends State<_FreeStyleWidget> {
 
   /// Callback when the user removes all pointers from the widget.
   void _handleHorizontalDragUp() {
-    DrawableCreatedNotification(drawable).dispatch(context);
+    if (drawable != null) {
+      DrawableCreatedNotification(drawable).dispatch(context);
+    }
 
     /// Reset the current drawable for the user to draw a new one next time
     drawable = null;
